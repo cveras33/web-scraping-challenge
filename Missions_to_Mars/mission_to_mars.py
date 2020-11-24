@@ -1,23 +1,25 @@
 from bs4 import BeautifulSoup
 from splinter import Browser
 from webdriver_manager.chrome import ChromeDriverManager
+import pandas as pd
+
 
 #def scrape():
 executable_path = {'executable_path': ChromeDriverManager().install()}
 browser = Browser('chrome', **executable_path, headless=False)
 
-url = "https://mars.nasa.gov/news/"
+url = 'https://mars.nasa.gov/news/'
 browser.visit(url)
 
 html = browser.html
 soup = BeautifulSoup(html, 'html.parser')
 
-news_title = soup.find_all("div", class_ = "content_title")
-news_title = news_title[1].find("a").get_text()
+news_title = soup.find_all('div', class_ = 'content_title')
+news_title = news_title[1].find('a').get_text()
 
 print(news_title)
 
-news_p = soup.find_all("div", class_ = "article_teaser_body")
+news_p = soup.find_all('div', class_ = 'article_teaser_body')
 news_p = news_p[0].get_text()
 
 print(news_p)
@@ -44,8 +46,6 @@ print(featured_image_url)
 
 browser.quit()
 #--------------------------------------------------------------------------------#
-import pandas as pd
-
 url = 'https://space-facts.com/mars/'
 
 table = pd.read_html(url)
@@ -53,7 +53,7 @@ table
 
 mars_table = table[0]
 
-mars_table = mars_table.rename(columns = {0: 'Mars Facts', 1:""})
+mars_table = mars_table.rename(columns = {0: 'Mars Facts', 1:''})
 mars_table = mars_table.set_index('Mars Facts')
 mars_table
 
@@ -78,11 +78,11 @@ for i in range(4):
     html = browser.html
     soup = BeautifulSoup(html, 'html.parser')
     
-    image_url = soup.find("a", text="Sample")["href"]
+    image_url = soup.find('a', text = 'Sample')['href']
     
     hemisphere_image_urls.append({
-        "title": title,
-        "image_url": image_url
+        'title': title,
+        'image_url': image_url
     })
 
     browser.back()

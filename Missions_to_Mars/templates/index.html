@@ -11,6 +11,7 @@
 </head>
 
 <body>
+    
   <div class="container">
 
     <div class="jumbotron text-center">
@@ -18,10 +19,50 @@
       <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
     </div>
 
-    <!-- Mars Data -->
-    
-
   </div>
+    
+  <!-- Latest Mars News -->
+  <div class = "container">
+      <h2>Latest Mars News</h2>
+      <h6>{{mars_data.news_title}}</h6>
+      <p>{{mars_data.news_p}}</p>
+  </div>
+
+  <div class = "container">
+      <div class = "row">
+          <!-- Row 1, Left Column: Featured Mars Image -->
+          <div class = "col-lg-8">
+            <h2>Featured Mars Image</h2>
+            <img src = "{{mars_data.featured_image_url}}" alt = "Featured Image">
+          </div>
+          <!-- Row 1, Right Column: Mars Facts -->
+          <div class = "col-lg-4">
+              <h6>Mars Facts</h6>
+              <table class = "table" {{mars_data.mars_table}}></table>
+          </div>
+      </div>
+  </div>
+
+  <div class = "container">
+      <h3 class = "text-center">Mars Hemispheres</h3>
+      <hr>
+      <div class = "row">
+        {% for item in mars_data.hemisphere_image_urls %}
+            <div class = "col-lg-6">
+                <div class = "card">
+                    <div class = "card-body">
+                        <img src = "{{item.image_url}}" alt = {{item.title}} width = "100%" height = "100%">
+                        <h4 class = "card-title">{{item.title}}</h4>
+                    </div>
+                </div>
+            </div>
+
+        {% endfor %}
+      </div>
+  </div>
+
+
+
 </body>
 
 </html>

@@ -49,6 +49,8 @@ def scrape():
 
     mars_table = mars_table.rename(columns = {0: 'Mars Facts', 1:''})
     mars_table = mars_table.set_index('Mars Facts')
+
+    mars_table = mars_table.to_html()
     #--------------------------------------------------------------------------------#
     executable_path = {'executable_path': ChromeDriverManager().install()}
     browser = Browser('chrome', **executable_path, headless=False)
@@ -64,7 +66,7 @@ def scrape():
     for i in range(4):
         title = soup.find_all('h3')[i].get_text()
         browser.find_by_tag('h3')[i].click()
-        
+
         html = browser.html
         soup = BeautifulSoup(html, 'html.parser')
         

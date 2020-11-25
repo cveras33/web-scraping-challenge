@@ -17,15 +17,10 @@ def scrape():
     news_title = soup.find_all('div', class_ = 'content_title')
     news_title = news_title[1].find('a').get_text()
 
-    print(news_title)
-
     news_p = soup.find_all('div', class_ = 'article_teaser_body')
     news_p = news_p[0].get_text()
 
-    print(news_p)
-
     browser.quit()
-
     #--------------------------------------------------------------------------------#
     executable_path = {'executable_path': ChromeDriverManager().install()}
     browser = Browser('chrome', **executable_path, headless=False)
@@ -41,22 +36,17 @@ def scrape():
     nasa_url = 'https://www.jpl.nasa.gov'
 
     featured_image_url = nasa_url + featured_image
-    print(featured_image_url)
 
     browser.quit()
     #--------------------------------------------------------------------------------#
     url = 'https://space-facts.com/mars/'
 
     table = pd.read_html(url)
-    table
 
     mars_table = table[0]
 
     mars_table = mars_table.rename(columns = {0: 'Mars Facts', 1:''})
     mars_table = mars_table.set_index('Mars Facts')
-
-    mars_html_table = mars_table.to_html('../Output/mars_table.html')
-
     #--------------------------------------------------------------------------------#
     executable_path = {'executable_path': ChromeDriverManager().install()}
     browser = Browser('chrome', **executable_path, headless=False)
@@ -90,7 +80,7 @@ def scrape():
     scraped_data = {
         "news_title" : news_title, 
         "news_p" : news_p, 
-        "featured_image" : featured_image,
+        "featured_image_url" : featured_image_url,
         "mars_table" : mars_table,
         "hemisphere_image_urls" : hemisphere_image_urls
     }

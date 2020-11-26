@@ -1,4 +1,5 @@
 # Mission to Mars Web Application 
+![mission_to_mars](https://github.com/cveras33/web-scraping-challenge/blob/main/Images/mission_to_mars.png)
 
 ## Background ##
 Mission to Mars Web Application scrapes various websites for data related to the Mission to Mars and displays the information in a single HTML page. An initial scrape is done using Jupyter Notebook, BeautifulSoup, Pandas, and Requests/Splinter. Then MongoDB with Flask templating is used to create a new HTML page that displays all of the information that was scraped from the URLs above.

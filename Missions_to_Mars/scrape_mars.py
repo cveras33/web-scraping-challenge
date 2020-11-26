@@ -63,8 +63,11 @@ def scrape():
 
     hemisphere_image_urls = []
 
+    get_title = soup.find_all('h3')
+
     for i in range(4):
-        title = soup.find_all('h3')[i].get_text()
+        title = get_title[i].get_text()
+       
         browser.find_by_tag('h3')[i].click()
 
         html = browser.html

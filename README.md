@@ -6,6 +6,10 @@ Mission to Mars Web Application scrapes various websites for data related to the
 
 ## General Information ##
 
+### Screenshots ### 
+![top_of_page](https://github.com/cveras33/web-scraping-challenge/blob/main/Images/top_of_page.png)
+![bottom_of_page](https://github.com/cveras33/web-scraping-challenge/blob/main/Images/bottom_of_page.png)
+
 #### Websites Used for Scraping #### 
 * [NASA Mars News](https://mars.nasa.gov/news/?page=0&per_page=40&order=publish_date+desc%2Ccreated_at+desc&search=&category=19%2C165%2C184%2C204&blank_scope=Latest)
 * [JPL Mars Space Images](https://www.jpl.nasa.gov/spaceimages/?search=&category=Mars)

@@ -35,10 +35,6 @@ Mission to Mars Web Application scrapes various websites for data related to the
 * Requests
 * Splinter
 
-## Setup ## 
-#### Running with Zsh #### 
-
-
 #### Status #### 
 Project is *complete*. 
 
